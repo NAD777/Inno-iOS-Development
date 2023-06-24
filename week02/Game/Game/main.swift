@@ -63,8 +63,8 @@ class Hero: CustomStringConvertible {
     private(set) var items: [Item] = .init()
     
     func smallBuff() {
-        health += 10
-        damage += 10
+        health += 5
+        damage += 5
     }
     
     var calculatedDamage: Int {
