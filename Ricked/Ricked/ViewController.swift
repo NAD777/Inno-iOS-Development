@@ -97,6 +97,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: DetailsViewControllerDelegate {
     func detailsViewController(
+        _ detailsViewController: DetailsViewController,
         didFinishEditing item: Character?
     ) {
         guard let item else { return }

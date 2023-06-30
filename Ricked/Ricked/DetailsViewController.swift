@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailsViewControllerDelegate: AnyObject {
     func detailsViewController(
+        _ detailsViewController: DetailsViewController,
         didFinishEditing item: Character?
     )
 }
@@ -17,15 +18,9 @@ class DetailsViewController: UIViewController {
     weak var delegate: DetailsViewControllerDelegate?
     var data: Character?
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
-    }()
+    private let imageView = UIImageView()
     
-    private let stateCircle: UIView = {
-        let stateCircle = UIView()
-        return stateCircle
-    }()
+    private let stateCircle = UIView()
     
     private let stateLabel: UILabel = {
         let stateLabel = UILabel()
@@ -75,7 +70,7 @@ class DetailsViewController: UIViewController {
             stateCircle.backgroundColor = .systemGray
             stateLabel.backgroundColor = .systemGray
         }
-        stateLabel.text = data.getGenderString()
+        stateLabel.text = data.getStatusString()
     }
     
     func setUpUI() {
@@ -139,9 +134,11 @@ extension DetailsViewController: UITableViewDataSource {
             cell.setInfo(title: "Name", details: data.name, editable: true) { [weak self] in
                 self?.oneLinePrompt(submit: {
                     [weak self] text in
+                    guard let selfClass = self else { return }
                     self?.data?.name = text
                     self?.infoTable.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
-                    self?.delegate?.detailsViewController(didFinishEditing: self?.data)
+                    self?.delegate?.detailsViewController(selfClass,
+                                                          didFinishEditing: self?.data)
                 })
             }
         case 1:
@@ -150,9 +147,11 @@ extension DetailsViewController: UITableViewDataSource {
             cell.setInfo(title: "Species", details: data.species, editable: true) { [weak self] in
                 self?.oneLinePrompt(submit: {
                     [weak self] text in
+                    guard let selfClass = self else { return }
                     self?.data?.species = text
                     self?.infoTable.reloadRows(at: [IndexPath(row: 2, section: 0)], with: .automatic)
-                    self?.delegate?.detailsViewController(didFinishEditing: self?.data)
+                    self?.delegate?.detailsViewController(selfClass,
+                                                          didFinishEditing: self?.data)
                 })
             }
         case 3:
