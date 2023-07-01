@@ -8,15 +8,18 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let manager: NetworkManagerProtocol = NetworkManger()
     
-    private var data: [Character] = [
-        Character(id: 1, name: "Rick Sanchez", status: .alive, species: "Human",
-                  gender: .male, location: "Earth", image: "Rick"),
-        Character(id: 2, name: "Morty Smith", status: .unknown, species: "Human",
-                  gender: .male, location: "Earth", image: "Morty"),
-        Character(id: 3, name: "Summer Smith", status: .dead, species: "Human",
-                  gender: .female, location: "Earth", image: "Summer"),
-    ]
+//    private var data: [Character] = [
+//        Character(id: 1, name: "Rick Sanchez", status: .alive, species: "Human",
+//                  gender: .male, location: "Earth", image: "Rick"),
+//        Character(id: 2, name: "Morty Smith", status: .unknown, species: "Human",
+//                  gender: .male, location: "Earth", image: "Morty"),
+//        Character(id: 3, name: "Summer Smith", status: .dead, species: "Human",
+//                  gender: .female, location: "Earth", image: "Summer"),
+//    ]
+    
+    private var data: [Character] = []
     
     private let tableOfContent: UITableView = {
         let tableOfContent = UITableView()
@@ -27,6 +30,8 @@ class ViewController: UIViewController {
         tableOfContent.register(EmptyCell.self,
                                 forCellReuseIdentifier: EmptyCell.reuseIdentifier)
         tableOfContent.separatorColor = .clear
+        tableOfContent.showsVerticalScrollIndicator = false
+        tableOfContent.showsHorizontalScrollIndicator = false
         return tableOfContent
     }()
     
@@ -41,6 +46,7 @@ class ViewController: UIViewController {
         view.addSubview(tableOfContent)
         
         NSLayoutConstraint.activate(staticConstraints())
+        loadCharacters()
     }
     
     private func staticConstraints() -> [NSLayoutConstraint] {
@@ -50,10 +56,14 @@ class ViewController: UIViewController {
             tableOfContent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             tableOfContent.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             tableOfContent.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            tableOfContent.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+            tableOfContent.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
         return constraints
+    }
+    
+    func reloadData() {
+        tableOfContent.reloadData()
     }
 }
 
@@ -106,6 +116,55 @@ extension ViewController: DetailsViewControllerDelegate {
                 data[i] = item
                 tableOfContent.reloadRows(at: [IndexPath(row: 2 * i, section: 0)],
                                           with: .automatic)
+                return
+            }
+        }
+    }
+}
+
+// MARK: - networking
+extension ViewController {
+    func convertToUIModels(_ welcome: CharacterResponseWelcome ) -> [Character] {
+        var results: [Character] = .init()
+        
+        for result in welcome.results {
+            var status: Character.Status = .unknown
+            switch result.status {
+            case .alive:
+                status = .alive
+            case .dead:
+                status = .dead
+            case .unknown:
+                status = .unknown
+            }
+
+            var gender: Character.Gender = .unknown
+            switch result.gender {
+            case .female:
+                gender = .female
+            case .genderless:
+                gender = .genderless
+            case .male:
+                gender = .male
+            case .unknown:
+                gender = .unknown
+            }
+            let character = Character(id: result.id, name: result.name, status: status,
+                                      species: result.species, gender: gender, location: result.location.name, image: result.image)
+            
+            results.append(character)
+        }
+        return results
+    }
+    
+    func loadCharacters() {
+        manager.fetchCoins { result in
+            switch result {
+            case let .success(responce):
+                self.data = self.convertToUIModels(responce)
+                self.reloadData()
+            case .failure:
+                print(1)
                 return
             }
         }
@@ -190,7 +249,8 @@ final class ContentCell: UITableViewCell {
     func setUpCell(data: Character) {
         title.text = data.name
         subTitle.text = data.species
-        imageUI.image = UIImage(named: data.image)
+//        imageUI.image = UIImage(named: data.image)
+        imageUI.download(from: data.image)
         switch data.status {
         case .alive:
             liveIndicator.backgroundColor = .systemGreen

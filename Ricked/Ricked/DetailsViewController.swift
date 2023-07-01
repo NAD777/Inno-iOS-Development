@@ -57,7 +57,8 @@ class DetailsViewController: UIViewController {
     
     private func setUpData(_ data: Character?) {
         guard let data else { return }
-        imageView.image = UIImage(named: data.image)
+//        imageView.image = UIImage(named: data.image)
+        imageView.download(from: data.image)
         
         switch data.status {
         case .alive:

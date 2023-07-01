@@ -15,9 +15,14 @@
 		01FD45AA2A4AE81400E2B75C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45A92A4AE81400E2B75C /* Character.swift */; };
 		01FD45AD2A4AE86500E2B75C /* UIImage+Extentions.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45AC2A4AE86500E2B75C /* UIImage+Extentions.swift.swift */; };
 		01FD45AF2A4AE99800E2B75C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45AE2A4AE99800E2B75C /* DetailsViewController.swift */; };
-		01FD45B12A4AEE7800E2B75C /* UIColor+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B02A4AEE7800E2B75C /* UIColor+Extentions.swift */; };
-		01FD45B52A4B124300E2B75C /* UILabel+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B42A4B124300E2B75C /* UILabel+Extentions.swift */; };
-		01FD45B72A4B226A00E2B75C /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B62A4B226A00E2B75C /* UIView+Extentions.swift */; };
+		01FD45B12A4AEE7800E2B75C /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B02A4AEE7800E2B75C /* UIColor+Extensions.swift */; };
+		01FD45B52A4B124300E2B75C /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B42A4B124300E2B75C /* UILabel+Extensions.swift */; };
+		01FD45B72A4B226A00E2B75C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B62A4B226A00E2B75C /* UIView+Extensions.swift */; };
+		01FD45BA2A4F1C9600E2B75C /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45B92A4F1C9600E2B75C /* APITarget.swift */; };
+		01FD45BC2A4F1CAB00E2B75C /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45BB2A4F1CAB00E2B75C /* NetworkManger.swift */; };
+		01FD45BF2A4F1CD700E2B75C /* RickResponceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45BE2A4F1CD700E2B75C /* RickResponceModel.swift */; };
+		01FD45C12A4F3FD000E2B75C /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FD45C02A4F3FD000E2B75C /* UIImageView+Extensions.swift */; };
+		1082B01AFA77E78F8DB17479 /* Pods_Ricked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC987CDFA16BD84DC43F3DF /* Pods_Ricked.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +36,16 @@
 		01FD45A92A4AE81400E2B75C /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		01FD45AC2A4AE86500E2B75C /* UIImage+Extentions.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extentions.swift.swift"; sourceTree = "<group>"; };
 		01FD45AE2A4AE99800E2B75C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
-		01FD45B02A4AEE7800E2B75C /* UIColor+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extentions.swift"; sourceTree = "<group>"; };
-		01FD45B42A4B124300E2B75C /* UILabel+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extentions.swift"; sourceTree = "<group>"; };
-		01FD45B62A4B226A00E2B75C /* UIView+Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
+		01FD45B02A4AEE7800E2B75C /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		01FD45B42A4B124300E2B75C /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		01FD45B62A4B226A00E2B75C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		01FD45B92A4F1C9600E2B75C /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
+		01FD45BB2A4F1CAB00E2B75C /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
+		01FD45BE2A4F1CD700E2B75C /* RickResponceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickResponceModel.swift; sourceTree = "<group>"; };
+		01FD45C02A4F3FD000E2B75C /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		333645FD87429945CD29CF55 /* Pods-Ricked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ricked.debug.xcconfig"; path = "Target Support Files/Pods-Ricked/Pods-Ricked.debug.xcconfig"; sourceTree = "<group>"; };
+		521A1513479875DD09CF087B /* Pods-Ricked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ricked.release.xcconfig"; path = "Target Support Files/Pods-Ricked/Pods-Ricked.release.xcconfig"; sourceTree = "<group>"; };
+		6BC987CDFA16BD84DC43F3DF /* Pods_Ricked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ricked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1082B01AFA77E78F8DB17479 /* Pods_Ricked.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +65,8 @@
 			children = (
 				01FD45932A4AD98B00E2B75C /* Ricked */,
 				01FD45922A4AD98B00E2B75C /* Products */,
+				590437A777CC26BA6F2863B5 /* Pods */,
+				C11116C02582655F32A7CE99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,11 +81,13 @@
 		01FD45932A4AD98B00E2B75C /* Ricked */ = {
 			isa = PBXGroup;
 			children = (
-				01FD45AB2A4AE85200E2B75C /* Extentions */,
+				01FD45C22A4F558300E2B75C /* Views */,
+				01FD45BD2A4F1CC000E2B75C /* ResponceModels */,
+				01FD45B82A4F1C4B00E2B75C /* Services */,
+				01FD45AB2A4AE85200E2B75C /* Extensions */,
 				01FD45A82A4AE7EE00E2B75C /* Models */,
 				01FD45942A4AD98B00E2B75C /* AppDelegate.swift */,
 				01FD45962A4AD98B00E2B75C /* SceneDelegate.swift */,
-				01FD45982A4AD98B00E2B75C /* ViewController.swift */,
 				01FD45AE2A4AE99800E2B75C /* DetailsViewController.swift */,
 				01FD459D2A4AD98D00E2B75C /* Assets.xcassets */,
 				01FD459F2A4AD98D00E2B75C /* LaunchScreen.storyboard */,
@@ -87,15 +104,58 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		01FD45AB2A4AE85200E2B75C /* Extentions */ = {
+		01FD45AB2A4AE85200E2B75C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				01FD45AC2A4AE86500E2B75C /* UIImage+Extentions.swift.swift */,
-				01FD45B02A4AEE7800E2B75C /* UIColor+Extentions.swift */,
-				01FD45B42A4B124300E2B75C /* UILabel+Extentions.swift */,
-				01FD45B62A4B226A00E2B75C /* UIView+Extentions.swift */,
+				01FD45B02A4AEE7800E2B75C /* UIColor+Extensions.swift */,
+				01FD45B42A4B124300E2B75C /* UILabel+Extensions.swift */,
+				01FD45B62A4B226A00E2B75C /* UIView+Extensions.swift */,
+				01FD45C02A4F3FD000E2B75C /* UIImageView+Extensions.swift */,
 			);
-			path = Extentions;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		01FD45B82A4F1C4B00E2B75C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01FD45B92A4F1C9600E2B75C /* APITarget.swift */,
+				01FD45BB2A4F1CAB00E2B75C /* NetworkManger.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		01FD45BD2A4F1CC000E2B75C /* ResponceModels */ = {
+			isa = PBXGroup;
+			children = (
+				01FD45BE2A4F1CD700E2B75C /* RickResponceModel.swift */,
+			);
+			path = ResponceModels;
+			sourceTree = "<group>";
+		};
+		01FD45C22A4F558300E2B75C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				01FD45982A4AD98B00E2B75C /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		590437A777CC26BA6F2863B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				333645FD87429945CD29CF55 /* Pods-Ricked.debug.xcconfig */,
+				521A1513479875DD09CF087B /* Pods-Ricked.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C11116C02582655F32A7CE99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6BC987CDFA16BD84DC43F3DF /* Pods_Ricked.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01FD45A52A4AD98D00E2B75C /* Build configuration list for PBXNativeTarget "Ricked" */;
 			buildPhases = (
+				4CB6C360567CB96C15F6D793 /* [CP] Check Pods Manifest.lock */,
 				01FD458D2A4AD98B00E2B75C /* Sources */,
 				01FD458E2A4AD98B00E2B75C /* Frameworks */,
 				01FD458F2A4AD98B00E2B75C /* Resources */,
+				715F7147E2E55AE819555D3A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -163,17 +225,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4CB6C360567CB96C15F6D793 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ricked-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		715F7147E2E55AE819555D3A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ricked/Pods-Ricked-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ricked/Pods-Ricked-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ricked/Pods-Ricked-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		01FD458D2A4AD98B00E2B75C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FD45C12A4F3FD000E2B75C /* UIImageView+Extensions.swift in Sources */,
+				01FD45BC2A4F1CAB00E2B75C /* NetworkManger.swift in Sources */,
 				01FD45992A4AD98B00E2B75C /* ViewController.swift in Sources */,
-				01FD45B52A4B124300E2B75C /* UILabel+Extentions.swift in Sources */,
-				01FD45B12A4AEE7800E2B75C /* UIColor+Extentions.swift in Sources */,
+				01FD45B52A4B124300E2B75C /* UILabel+Extensions.swift in Sources */,
+				01FD45B12A4AEE7800E2B75C /* UIColor+Extensions.swift in Sources */,
+				01FD45BA2A4F1C9600E2B75C /* APITarget.swift in Sources */,
 				01FD45AD2A4AE86500E2B75C /* UIImage+Extentions.swift.swift in Sources */,
 				01FD45AA2A4AE81400E2B75C /* Character.swift in Sources */,
-				01FD45B72A4B226A00E2B75C /* UIView+Extentions.swift in Sources */,
+				01FD45BF2A4F1CD700E2B75C /* RickResponceModel.swift in Sources */,
+				01FD45B72A4B226A00E2B75C /* UIView+Extensions.swift in Sources */,
 				01FD45952A4AD98B00E2B75C /* AppDelegate.swift in Sources */,
 				01FD45972A4AD98B00E2B75C /* SceneDelegate.swift in Sources */,
 				01FD45AF2A4AE99800E2B75C /* DetailsViewController.swift in Sources */,
@@ -310,6 +418,7 @@
 		};
 		01FD45A62A4AD98D00E2B75C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 333645FD87429945CD29CF55 /* Pods-Ricked.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -337,6 +446,7 @@
 		};
 		01FD45A72A4AD98D00E2B75C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 521A1513479875DD09CF087B /* Pods-Ricked.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
