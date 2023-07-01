@@ -10,15 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     private let manager: NetworkManagerProtocol = NetworkManger()
     
-//    private var data: [Character] = [
-//        Character(id: 1, name: "Rick Sanchez", status: .alive, species: "Human",
-//                  gender: .male, location: "Earth", image: "Rick"),
-//        Character(id: 2, name: "Morty Smith", status: .unknown, species: "Human",
-//                  gender: .male, location: "Earth", image: "Morty"),
-//        Character(id: 3, name: "Summer Smith", status: .dead, species: "Human",
-//                  gender: .female, location: "Earth", image: "Summer"),
-//    ]
-    
     private var data: [Character] = []
     
     private let tableOfContent: UITableView = {
@@ -249,7 +240,6 @@ final class ContentCell: UITableViewCell {
     func setUpCell(data: Character) {
         title.text = data.name
         subTitle.text = data.species
-//        imageUI.image = UIImage(named: data.image)
         imageUI.download(from: data.image)
         switch data.status {
         case .alive:

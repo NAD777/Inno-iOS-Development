@@ -32,15 +32,6 @@ extension APITarget: TargetType {
     }
 
     var task: Moya.Task {
-//        .requestParameters(parameters: [
-//            "vs_currency": "usd",
-//            "order": "market_cap_desc",
-//            "per_page": 250,
-//            "page": 1,
-//            "sparkline": true,
-//            "price_change_percentage": "24h",
-//            "locale": "en"
-//        ], encoding: URLEncoding.default)
         .requestPlain
     }
 
