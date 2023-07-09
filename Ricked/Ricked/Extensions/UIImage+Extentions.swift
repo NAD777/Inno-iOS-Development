@@ -54,6 +54,10 @@ extension UIImage {
             return nil
         }
     }
+    
+    static var starFilled: UIImage? {
+        UIImage(systemName: "star.fill")
+    }
 }
 
 extension UIImage {

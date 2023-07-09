@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/nad/git_reps/Inno-iOS-Development/Ricked/Ricked/CoreData/CoreCharacter+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/nad/git_reps/Inno-iOS-Development/Ricked/Ricked/CoreData/CoreCharacter+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Ricked.xcodeproj">
    </FileRef>
    <FileRef

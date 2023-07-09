@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     private let manager: NetworkManagerProtocol = NetworkManger()
+    private lazy var coreCharacterService: CoreCharacterService = .init()
     
     private var data: [Character] = []
     
@@ -141,7 +143,8 @@ extension ViewController {
                 gender = .unknown
             }
             let character = Character(id: result.id, name: result.name, status: status,
-                                      species: result.species, gender: gender, location: result.location.name, image: result.image)
+                                      species: result.species, gender: gender, location: result.location.name,
+                                      image: result.image)
             
             results.append(character)
         }
@@ -149,15 +152,16 @@ extension ViewController {
     }
     
     func loadCharacters() {
-        manager.fetchCoins { result in
+        manager.fetchCharacters { result in
+            print(result)
             switch result {
             case let .success(responce):
                 self.data = self.convertToUIModels(responce)
-                self.reloadData()
+                self.coreCharacterService.cacheUICharacters(self.data)
             case .failure:
-                print(1)
-                return
+                self.data = self.coreCharacterService.retrieveCharacters()
             }
+            self.reloadData()
         }
     }
 }
@@ -324,6 +328,10 @@ final class ContentCell: UITableViewCell {
         ])
         
         return constraints
+    }
+    
+    override func prepareForReuse() {
+        imageUI.image = .starFilled
     }
 }
 

@@ -6,12 +6,20 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -22,6 +30,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = vc
         self.window = window
         window.makeKeyAndVisible()
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let launchCount = UserDefaults.standard.integer(forKey: "launchCount")
+//        print(launchedBefore)
+//        print(launchCount)
+
+        if launchedBefore && launchCount % 3 == 0 {
+            let message = "This is your \(launchCount)th launch!"
+            let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+
+            window.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+//        resetDefaults()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

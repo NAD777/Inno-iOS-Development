@@ -19,17 +19,17 @@
 */
 
 struct Character {
-    enum Status {
-        case alive
-        case dead
-        case unknown
+    enum Status: String {
+        case alive = "Alive"
+        case dead = "Dead"
+        case unknown = "Unknown"
     }
     
-    enum Gender {
-        case female
-        case male
-        case genderless
-        case unknown
+    enum Gender: String {
+        case female = "Female"
+        case male = "Male"
+        case genderless = "Genderless"
+        case unknown = "Unknown"
     }
     
     let id: Int
@@ -41,27 +41,11 @@ struct Character {
     let image: String
     
     func getStatusString() -> String {
-        switch status {
-        case .alive:
-            return "Alive"
-        case .dead:
-            return "Dead"
-        case .unknown:
-            return "Unknown"
-        }
+        status.rawValue
     }
     
     func getGenderString() -> String {
-        switch gender {
-        case .female:
-            return "Female"
-        case .male:
-            return "Male"
-        case .genderless:
-            return "Genderless"
-        case .unknown:
-            return "Unknown"
-        }
+        gender.rawValue
     }
     
     mutating func setValues(other: Self) {
