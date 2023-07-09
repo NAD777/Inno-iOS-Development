@@ -149,7 +149,7 @@ extension ViewController {
     }
     
     func loadCharacters() {
-        manager.fetchCoins { result in
+        manager.fetchCharacters { result in
             switch result {
             case let .success(responce):
                 self.data = self.convertToUIModels(responce)

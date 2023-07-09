@@ -8,7 +8,7 @@
 import Moya
 
 protocol NetworkManagerProtocol {
-    func fetchCoins(
+    func fetchCharacters(
         completion: @escaping (Result<CharacterResponseWelcome, Error>
         ) -> Void)
 }
@@ -17,7 +17,7 @@ final class NetworkManger: NetworkManagerProtocol {
     
     private var provider = MoyaProvider<APITarget>()
     
-    func fetchCoins(
+    func fetchCharacters(
         completion: @escaping (Result<CharacterResponseWelcome, Error>
         ) -> Void) {
         request(target: .getCharacters, completion: completion)
