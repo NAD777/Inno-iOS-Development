@@ -11,7 +11,7 @@ import CoreData
 
 class CoreCharacterService {
     
-    var delegate: NSFetchedResultsControllerDelegate?
+    weak var delegate: NSFetchedResultsControllerDelegate?
     
     init(delegate: NSFetchedResultsControllerDelegate? = nil) {
         self.delegate = delegate
@@ -49,7 +49,7 @@ class CoreCharacterService {
     func fetchChracter(id: Int64) -> CoreCharacter? {
         do {
             let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreCharacter")
-            fetchRequest.predicate = NSPredicate(format: "givenId == %@", id)
+            fetchRequest.predicate = NSPredicate(format: "givenId == %lld", id)
             let results = try PersistentContainer.shared.viewContext.fetch(fetchRequest) as? [CoreCharacter]
             return results?.first
         } catch {
@@ -60,12 +60,11 @@ class CoreCharacterService {
     
     func cacheUICharacters(_ characters: [Character]) {
         for character in characters {
-            PersistentContainer.shared.performBackgroundTask { [character] backgroundContext in
+            PersistentContainer.shared.performBackgroundTask { [character, weak self] backgroundContext in
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreCharacter")
-//                print(character.id)
                 fetchRequest.predicate = NSPredicate(format: "givenId == %lld", Int64(character.id))
                 let results = try? backgroundContext.fetch(fetchRequest) as? [CoreCharacter]
-                if let character = results?.first {
+                if (results?.first) != nil {
                     return
                 } else {
                     let newEntry = CoreCharacter(context: backgroundContext)
@@ -82,6 +81,15 @@ class CoreCharacterService {
         }
     }
     
+    func translateToUIModel(coreCharacter: CoreCharacter) -> Character {
+        Character(id: Int(coreCharacter.givenId), name: coreCharacter.name ?? "",
+                                 status: Character.Status(rawValue: coreCharacter.status ?? "") ?? .alive,
+                                 species: coreCharacter.species ?? "",
+                                 gender: Character.Gender(rawValue: coreCharacter.gender ?? "") ?? .unknown,
+                                 location: coreCharacter.location ?? "",
+                                 image: coreCharacter.image ?? "")
+    }
+    
     func retrieveCharacters() -> [Character] {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreCharacter")
         fetchRequest.sortDescriptors = [
@@ -92,12 +100,7 @@ class CoreCharacterService {
         do {
             var res = (try? PersistentContainer.shared.viewContext.fetch(fetchRequest) as? [CoreCharacter]) ?? []
             res.forEach { coreCharacter in
-                results.append(Character(id: Int(coreCharacter.givenId), name: coreCharacter.name ?? "",
-                                         status: Character.Status(rawValue: coreCharacter.status ?? "") ?? .alive,
-                                         species: coreCharacter.species ?? "",
-                                         gender: Character.Gender(rawValue: coreCharacter.gender ?? "") ?? .unknown,
-                                         location: coreCharacter.location ?? "",
-                                         image: coreCharacter.image ?? "")
+                results.append(translateToUIModel(coreCharacter: coreCharacter)
                 )
             }
             

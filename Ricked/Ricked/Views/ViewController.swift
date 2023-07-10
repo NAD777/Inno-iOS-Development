@@ -10,9 +10,7 @@ import CoreData
 
 class ViewController: UIViewController {
     private let manager: NetworkManagerProtocol = NetworkManger()
-    private lazy var coreCharacterService: CoreCharacterService = .init()
-    
-    private var data: [Character] = []
+    private var coreCharacterService: CoreCharacterService!
     
     private let tableOfContent: UITableView = {
         let tableOfContent = UITableView()
@@ -35,11 +33,24 @@ class ViewController: UIViewController {
         tableOfContent.delegate = self
         tableOfContent.dataSource = self
         view.backgroundColor = .background
+        coreCharacterService = .init(delegate: self)
         
         view.addSubview(tableOfContent)
         
         NSLayoutConstraint.activate(staticConstraints())
-        loadCharacters()
+        
+        DispatchQueue.global().async { [weak self] in
+            self?.loadCharacters()
+            DispatchQueue.main.async { [weak self] in
+                self?.reloadData()
+            }
+        }
+        do {
+            try coreCharacterService.frc.performFetch()
+        } catch {
+            print(error)
+        }
+        reloadData()
     }
     
     private func staticConstraints() -> [NSLayoutConstraint] {
@@ -65,7 +76,9 @@ extension ViewController: UITableViewDelegate {
         let index = indexPath.row / 2
         let detailsViewController = DetailsViewController()
         detailsViewController.delegate = self
-        detailsViewController.data = data[index]
+        let newIndexPath = IndexPath(row: index, section: indexPath.section)
+        let entry = coreCharacterService.frc.object(at: newIndexPath)
+        detailsViewController.data = coreCharacterService.translateToUIModel(coreCharacter: entry)
         present(detailsViewController, animated: true)
     }
     
@@ -79,7 +92,11 @@ extension ViewController: UITableViewDataSource {
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        data.count * 2 - 1
+        if let sections = coreCharacterService.frc.sections {
+            return sections[section].numberOfObjects * 2 - 1
+        } else {
+            return 0
+        }
     }
     
     func tableView(
@@ -92,8 +109,9 @@ extension ViewController: UITableViewDataSource {
         }
         guard let cell = tableOfContent.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as? ContentCell  else { return UITableViewCell() }
         let index = indexPath.row / 2
-        
-        cell.setUpCell(data: data[index])
+        let newIndexPath = IndexPath(row: index, section: indexPath.section)
+        let entry = coreCharacterService.frc.object(at: newIndexPath)
+        cell.setUpCell(data: coreCharacterService.translateToUIModel(coreCharacter: entry))
         return cell
     }
 }
@@ -104,15 +122,18 @@ extension ViewController: DetailsViewControllerDelegate {
         didFinishEditing item: Character?
     ) {
         guard let item else { return }
-        for i in 0..<data.count {
-            if data[i].id == item.id {
-                data[i] = item
-                tableOfContent.reloadRows(at: [IndexPath(row: 2 * i, section: 0)],
-                                          with: .automatic)
-                return
-            }
+        PersistentContainer.shared.performBackgroundTask { [weak self] backgroundContext in
+            guard let self else { return }
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreCharacter")
+            fetchRequest.predicate = NSPredicate(format: "givenId == %lld", Int64(item.id))
+            let character = (try? backgroundContext.fetch(fetchRequest) as? [CoreCharacter])?.first
+            guard let character else { return }
+            character.name = item.name
+            character.species = item.species
+            PersistentContainer.shared.saveContext(backgroundContext: backgroundContext)
         }
     }
+    
 }
 
 // MARK: - networking
@@ -152,17 +173,21 @@ extension ViewController {
     }
     
     func loadCharacters() {
-        manager.fetchCharacters { result in
-            print(result)
+        manager.fetchCharacters { [weak self] result in
             switch result {
             case let .success(responce):
-                self.data = self.convertToUIModels(responce)
-                self.coreCharacterService.cacheUICharacters(self.data)
+                let data = self?.convertToUIModels(responce) ?? []
+                self?.coreCharacterService.cacheUICharacters(data)
             case .failure:
-                self.data = self.coreCharacterService.retrieveCharacters()
+                return
             }
-            self.reloadData()
         }
+    }
+}
+
+extension ViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        reloadData()
     }
 }
 

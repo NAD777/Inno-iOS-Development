@@ -7,28 +7,24 @@
 
 import UIKit
 
-let imageCache = NSCache<NSURL, UIImage>()
 
 extension UIImageView {
-    func saveImage(name: String, image: UIImage) -> Bool {
+    func saveImage(name: String, image: UIImage) {
         guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
-            return false
+            return
         }
         guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
-            return false
+            return
         }
         do {
             try data.write(to: directory.appendingPathComponent(name)!)
-            return true
         } catch {
             print(error.localizedDescription)
-            return false
         }
     }
     
     func getSavedImage(named: String) -> UIImage? {
         if let dir = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) {
-            print(dir)
             return UIImage(contentsOfFile: URL(fileURLWithPath: dir.absoluteString).appendingPathComponent(named).path)
         }
         
@@ -38,12 +34,6 @@ extension UIImageView {
     func download(from url: NSURL, mode: ContentMode = .scaleAspectFit) {
         let filename = url.relativePath?.split(separator: "/").last
         contentMode = mode
-        //        if let cachedImage = imageCache.object(forKey: url){
-        //            DispatchQueue.main.async {
-        //                self.image = cachedImage
-        //            }
-        //            return
-        //        }
         
         if let filename, let cachedImage = getSavedImage(named: String(filename)) {
             DispatchQueue.main.async {
@@ -61,7 +51,6 @@ extension UIImageView {
             else { return }
             if let filename {
                 DispatchQueue.main.async { [weak self] in
-                    //                imageCache.setObject(image, forKey: url)
                     self?.saveImage(name: String(filename), image: image)
                     self?.image = image
                 }

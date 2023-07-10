@@ -293,117 +293,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1DA32E4C-659E-4E94-9A6E-AB60AC1292E3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ricked/CoreData/CoreCharacterService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "fetchChracter(id:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DD80F639-FEAD-4C4C-84B4-E6C88A77769B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ricked/CoreData/CoreCharacterService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "cacheUICharacters(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D7F9FF79-257D-4339-BF37-1F0FD38B4816"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ricked/Views/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "loadCharacters()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D7F9FF79-257D-4339-BF37-1F0FD38B4816 - 5aa51233b5f4dd6f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Ricked.CharacterResponseWelcome, Swift.Error&gt;) -&gt; () in Ricked.ViewController.loadCharacters() -&gt; ()"
-                  moduleName = "Ricked"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nad/git_reps/Inno-iOS-Development/Ricked/Ricked/Views/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "988">
-               </Location>
-               <Location
-                  uuid = "D7F9FF79-257D-4339-BF37-1F0FD38B4816 - 5aa51233b5f4dd4e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Ricked.CharacterResponseWelcome, Swift.Error&gt;) -&gt; () in Ricked.ViewController.loadCharacters() -&gt; ()"
-                  moduleName = "Ricked"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nad/git_reps/Inno-iOS-Development/Ricked/Ricked/Views/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "166"
-                  endingLineNumber = "166"
-                  offsetFromSymbolStart = "1128">
-               </Location>
-               <Location
-                  uuid = "D7F9FF79-257D-4339-BF37-1F0FD38B4816 - 5aa51233b5f4ddc2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Ricked.CharacterResponseWelcome, Swift.Error&gt;) -&gt; () in Ricked.ViewController.loadCharacters() -&gt; ()"
-                  moduleName = "Ricked"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nad/git_reps/Inno-iOS-Development/Ricked/Ricked/Views/ViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "408">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CBE30B00-8536-455C-B648-C7AF24F96BF2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ricked/Views/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "loadCharacters()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "57BEDCD1-AF9D-4B11-B868-E5A95834C1DE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -411,8 +300,8 @@
             filePath = "Ricked/Extensions/UIImageView+Extensions.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "download(from:mode:)"
             landmarkType = "7">
             <Locations>
@@ -447,6 +336,22 @@
                   offsetFromSymbolStart = "248">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1B2D1455-1424-4AF4-A077-33FD2737E33E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ricked/CoreData/PersistentContainer.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "saveContext(backgroundContext:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
