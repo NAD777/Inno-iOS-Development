@@ -15,6 +15,14 @@ protocol NetworkManagerProtocol {
 
 final class NetworkManger: NetworkManagerProtocol {
     
+//    private var provider: MoyaProvider<APITarget> = {
+//        let session = Session(configuration: URLSessionConfiguration.default, startRequestsImmediately: false)
+//        session.sessionConfiguration.requestCachePolicy = .reloadIgnoringCacheData
+//        session.sessionConfiguration.urlCache = nil
+//        let provider = MoyaProvider<APITarget>(session: session)
+//
+//        return provider
+//    }()
     private var provider = MoyaProvider<APITarget>()
     
     func fetchCharacters(
